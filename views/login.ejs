@@ -1,0 +1,29 @@
+<!-- header file added -->
+<%- include('header')%>
+
+<div class="container-fluid">
+    <div class="row">
+        <form action="/user/dashboard" method="post" class="login-form">
+
+            <input type="email" 
+            class="user-login-email" 
+            name="userMail" 
+            placeholder="username" 
+            required>
+
+            <input type="password"
+            class="user-login-password"
+            name="userPassword"
+            placeholder="password"
+            required>
+
+            <button type="submit" class="btn btn-primary">Login</button>
+
+        </form>
+    </div>
+</div>
+
+
+<!-- footer.ejs is linked -->
+
+<%- include('footer')%>

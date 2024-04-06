@@ -2,7 +2,8 @@
 <%- include('header')%>
 
 <div class="d-flex align-items-center justify-content-center login-container">
-    <form action="/user/login" method="post" class="login-form" >
+    <form action="/user/login" method="post" class="login-form" id="registration-form">
+
             <h2>Register</h2>
             <input type="text" 
             class="user-register-name" 
@@ -19,15 +20,18 @@
             <input type="password"
             class="user-register-password"
             name="userPassword"
+            id="user-register-password"
             placeholder="password"
             required>
+
             <input type="password"
             class="user-register-password"
             name="userPasswordConfirm"
+            id="user-register-password-confirm"
             placeholder="confirm password"
             required>
 
-            <button type="submit" class="btn btn-primary">Register</button>
+            <button type="submit" class="btn btn-primary" id="user-register-btn">Register</button>
 
             <h6>Already have an account? <a href="/">Login here</a></h6>
         </form>

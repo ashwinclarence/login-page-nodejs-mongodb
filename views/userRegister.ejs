@@ -1,0 +1,39 @@
+<!-- header file added -->
+<%- include('header')%>
+
+<div class="d-flex align-items-center justify-content-center login-container">
+    <form action="/user/login" method="post" class="login-form" >
+            <h2>Register</h2>
+            <input type="text" 
+            class="user-register-name" 
+            name="userName" 
+            placeholder="Full name" 
+            required>
+
+            <input type="email" 
+            class="user-register-email" 
+            name="userMail" 
+            placeholder="Email address" 
+            required>
+
+            <input type="password"
+            class="user-register-password"
+            name="userPassword"
+            placeholder="password"
+            required>
+            <input type="password"
+            class="user-register-password"
+            name="userPasswordConfirm"
+            placeholder="confirm password"
+            required>
+
+            <button type="submit" class="btn btn-primary">Register</button>
+
+            <h6>Already have an account? <a href="/">Login here</a></h6>
+        </form>
+</div>
+
+
+<!-- footer.ejs is linked -->
+
+<%- include('footer')%>

@@ -1,10 +1,9 @@
 <!-- header file added -->
 <%- include('header')%>
 
-<div class="container-fluid">
-    <div class="row">
-        <form action="/user/dashboard" method="post" class="login-form">
-
+<div class="d-flex align-items-center justify-content-center login-container">
+    <form action="/user/dashboard" method="post" class="login-form" >
+            <h2>login</h2>
             <input type="email" 
             class="user-login-email" 
             name="userMail" 
@@ -20,7 +19,6 @@
             <button type="submit" class="btn btn-primary">Login</button>
 
         </form>
-    </div>
 </div>
 
 

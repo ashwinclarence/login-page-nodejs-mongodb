@@ -9,15 +9,24 @@ const app=express()
 
 const port=process.env.PORT||3000;
 
+
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended:true}))
+app.use(nocache());
+app.use(bodyParser.urlencoded({ extended: true }))
+
+app.set('view engine', 'ejs');
+
+app.use('/static', express.static(path.join(__dirname, 'public')));
+
+app.use('/assets', express.static(path.join(__dirname, 'public/assets')));
+
+
 app.use(session({
     secret:uuidv4(),
     resave:true,
     saveUninitialized:true
 }))
 
-app.set('view engine','ejs');
 
 app.get('/',(req,res)=>{
     res.render('login',{title:'Login Page'})

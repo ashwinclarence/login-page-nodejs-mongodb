@@ -1,5 +1,9 @@
 <%-include('header')%>
+<%-include('adminNav')%>
 <div class="admin-home-container">
+    <div class="user-manage-header">
+        <h2>Users List</h2>
+    </div>
     <div class="admin-search-box">
         <input type="text" placeholder="Search" id="admin-input-box">
         <i class="fa-solid fa-magnifying-glass"></i>
@@ -29,6 +33,5 @@
            </tbody>
         </table>
     </div>
-    <a href="/admin" class="btn btn-danger">Logout <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
 </div>
 <%-include('footer')%>

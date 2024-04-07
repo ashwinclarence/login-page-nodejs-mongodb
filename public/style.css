@@ -14,11 +14,16 @@ body{
 }
 
 /* navbar header */
+
 .logo-container{
     position: fixed;
     padding: 10px;
     top: 0;
     left: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    padding: 10px 30px;
 }
 .logo-container h3{
   font-size: 2rem;
@@ -76,6 +81,7 @@ input:-webkit-autofill:active{
 }
 .footer-container i{
     scale: 1.5;
+    cursor: pointer;
     transition: .3s ease-in-out;
 }
 .footer-container i:hover{

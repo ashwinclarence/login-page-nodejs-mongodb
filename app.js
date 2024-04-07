@@ -38,7 +38,11 @@ app.use('/admin', adminRoutes);
 
 // First route
 app.get('/', (req, res) => {
-    res.render('login', { title: 'Login Page' });
+    if(req.session.user){
+        res.redirect('/user/dashboard')
+    }else{
+        res.render('login', { title: 'Login Page' });
+    }
 });
 
 // Port listening

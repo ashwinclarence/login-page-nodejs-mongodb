@@ -45,6 +45,7 @@ body{
   backdrop-filter: blur(5px);
 }
 .login-form input{
+    padding: 3px;
     width: 80%;
     height: 2rem;
     border: none;
@@ -62,7 +63,10 @@ input:-webkit-autofill:active{
     -webkit-background-clip: text;
     transition: background-color 5000s ease-in-out 0s;
 }
-
+#login-error-message{
+    color: #ff0000;
+    width: 80%;
+}
 
 
 /* footer */
@@ -89,3 +93,51 @@ scale: 1.1;
     gap: 2rem;
     height: 100vh;
 }
+.user-home-container h1{
+    font-weight: 700;
+    letter-spacing: 5px;
+}
+
+/* admin home */
+.admin-home-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    min-height: 100vh;
+    padding: 10rem 0;
+}
+.admin-search-box{
+    background-color: #ffffff;
+    border: 1px solid #000000;
+  padding: 10px;
+  border-radius: 10px;
+}
+.admin-search-box input{
+   border: none;
+   background: transparent;
+   outline: none;
+   width: 20rem;
+}
+
+/* admin home user list */
+.admin-user-view{
+    background-color: #ffffff7b;
+    width: 70vw;
+    display: flex;
+    justify-content: center;
+
+}
+.admin-user-view table{
+  width: 100%;
+  cursor: pointer;
+}
+.admin-user-view tr{
+    border-bottom: 1px solid #6c6c6c;
+}
+.admin-user-view th, td{
+    padding: 10px;
+    text-align: center;
+}
+

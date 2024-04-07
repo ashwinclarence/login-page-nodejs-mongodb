@@ -1,0 +1,30 @@
+<!-- header file added -->
+<%- include('header')%>
+
+<div class="d-flex align-items-center justify-content-center login-container">
+    <form action="/admin/dashboard" method="post" class="login-form" >
+            <h2>Admin login</h2>
+            <input type="email" 
+            class="admin-login-email" 
+            name="adminMail" 
+            placeholder="admin username" 
+            required>
+
+            <input type="password"
+            class="admin-login-password"
+            name="adminPassword"
+            placeholder="admin password"
+            required>
+
+            <p id="login-error-message">
+                <%= locals.ErrorMessage ? ErrorMessage : "" %>
+            </p>
+            <button type="submit" class="btn btn-primary">Login</button>
+            
+        </form>
+</div>
+
+
+<!-- footer.ejs is linked -->
+
+<%- include('footer')%>

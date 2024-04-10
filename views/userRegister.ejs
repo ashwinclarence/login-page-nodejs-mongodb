@@ -2,7 +2,7 @@
 <%- include('header')%>
 
 <div class="d-flex align-items-center justify-content-center login-container">
-    <form action="/user/login" method="post" class="login-form" id="registration-form">
+    <form action="/user/register" method="post" class="login-form" id="registration-form">
 
             <h2>Register</h2>
             <input type="text" 
@@ -30,6 +30,11 @@
             id="user-register-password-confirm"
             placeholder="confirm password"
             required>
+
+            <!-- if user already exist an error message will come from backend. Then only the label inside the if will show with the error message -->
+            <% if(status) {%>
+                <label style="color: red;"> <%=mess%> </label>
+            <% }%>
 
             <button type="submit" class="btn btn-primary" id="user-register-btn">Register</button>
 

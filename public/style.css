@@ -12,6 +12,9 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+::-webkit-scrollbar{
+    display: none;
+}
 
 /* navbar header */
 
@@ -132,6 +135,8 @@ scale: 1.1;
     background-color: #ffffff7b;
     width: 70vw;
     display: flex;
+    border-radius: 10px;
+    overflow: hidden;
     justify-content: center;
 
 }

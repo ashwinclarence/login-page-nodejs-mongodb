@@ -1,9 +1,9 @@
 const express = require('express');
-const session = require('express-session');
 const path = require('path');
 const bodyParser = require('body-parser');
-const nocache = require('nocache');
+const session = require('express-session');
 const { v4: uuidv4 } = require('uuid');
+const nocache = require('nocache');
 const userRoutes = require('./routes/userRoute');
 const adminRoutes = require('./routes/adminRoute');
 
@@ -25,25 +25,30 @@ app.set('view engine', 'ejs');
 app.use('/static', express.static(path.join(__dirname, 'public')));
 app.use('/assets', express.static(path.join(__dirname, 'public/assets')));
 
-// Session configuration
+
+const oneDay = 1000 * 60 * 60 * 24; //one day in seconds
 app.use(session({
     secret: uuidv4(),
-    resave: true,
-    saveUninitialized: true
-}));
+    resave: false,
+    cookie: { maxAge: oneDay },
+    saveUninitialized: true,
+  })
+); //creating session
+
+// First route
+app.get('/', (req, res) => {
+    if(req.session.username){
+        res.redirect('/user/home')
+    }else{
+        res.render('login', { title: 'Login Page' ,status:false});
+    }
+});
 
 // Routes
 app.use('/user', userRoutes);
 app.use('/admin', adminRoutes);
 
-// First route
-app.get('/', (req, res) => {
-    if(req.session.user){
-        res.redirect('/user/dashboard')
-    }else{
-        res.render('login', { title: 'Login Page' });
-    }
-});
+
 
 // Port listening
 app.listen(port, () => {

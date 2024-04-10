@@ -1,18 +1,12 @@
 const express=require('express')
-const user=express.Router()
+const user=express.Router();
+const userController=require('../controller/userController')
+
+user.get('/register',userController.signup);
+user.post('/register',userController.signupPost);
+user.post('/login',userController.loginPost);
+user.get('/home',userController.home)
+user.get('/logout',userController.logout)
 
 
-user.post('/login',(req,res)=>{
-    res.render('login',{title:'User login'})
-})
-
-user.get('/register',(req,res)=>{
-    res.render('userRegister',{title:'User Register'})
-})
-
-user.post('/dashboard',(req,res)=>{
-    res.render('userHome',{title:'User Home'})
-})
-
-
-module.exports=user
+module.exports=user;

@@ -41,7 +41,6 @@ const loginPost = async (req, res) => {
     try {
         const CheckUser = await collection.findOne({ email: req.body.userMail })
         if (CheckUser && CheckUser.password === req.body.userPassword) {
-            req.session.nameUserLogin = req.body.userName
             req.session.username = req.body.userMail
             res.redirect('/user/home')
         } else {
@@ -54,9 +53,10 @@ const loginPost = async (req, res) => {
 }
 
 // user home route
-const home = (req, res) => {
+const home = async (req, res) => {
     if (req.session.username) {
-        res.render('userHome', { title: "User home",username:req.session.nameUserLogin })
+        const usernameDb=await collection.findOne({email:req.session.username}) 
+        res.render('userHome', { title: "User home",username:usernameDb.name })
     } else {
         res.redirect('/')
     }

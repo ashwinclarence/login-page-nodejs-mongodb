@@ -1,0 +1,44 @@
+<%-include('header') %>
+<%-include('adminNav') %>
+
+<div class="d-flex align-items-center justify-content-center login-container">
+    <form action="/admin/newUser" method="post" class="login-form" id="registration-form">
+
+            <h2>Add New User</h2>
+            <input type="text" 
+            class="user-register-name" 
+            name="userName" 
+            placeholder="Full name" 
+            required>
+
+            <input type="email" 
+            class="user-register-email" 
+            name="userMail" 
+            placeholder="Email address" 
+            required>
+
+            <input type="password"
+            class="user-register-password"
+            name="userPassword"
+            id="user-register-password"
+            placeholder="password"
+            required>
+
+            <input type="password"
+            class="user-register-password"
+            name="userPasswordConfirm"
+            id="user-register-password-confirm"
+            placeholder="confirm password"
+            required>
+
+            <!-- if user already exist an error message will come from backend. Then only the label inside the if will show with the error message -->
+            <% if(status) {%>
+                <label style="color: red;"> <%=mess%> </label>
+            <% }%>
+
+            <button type="submit" class="btn btn-primary" id="user-register-btn">Add User</button>
+
+        </form>
+</div>
+
+<%-include('footer') %>

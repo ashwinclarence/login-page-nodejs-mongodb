@@ -1,7 +1,6 @@
 const mongoose =require("mongoose")
 
 // mongodb connection using the connection string
-
 mongoose.connect('mongodb://localhost:27017/DbUserManagement').then(()=>{
     console.log("Mongodb Connected")
 }).catch((err)=>{
@@ -9,7 +8,6 @@ mongoose.connect('mongodb://localhost:27017/DbUserManagement').then(()=>{
 })
 
 // defining the schema for the collection
-
 const schema =new mongoose.Schema({
     name:{
         type:String,

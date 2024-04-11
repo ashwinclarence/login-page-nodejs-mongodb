@@ -25,15 +25,17 @@ app.set('view engine', 'ejs');
 app.use('/static', express.static(path.join(__dirname, 'public')));
 app.use('/assets', express.static(path.join(__dirname, 'public/assets')));
 
+//one day in seconds
+const oneDay = 1000 * 60 * 60 * 24; 
 
-const oneDay = 1000 * 60 * 60 * 24; //one day in seconds
+//creating session
 app.use(session({
     secret: uuidv4(),
     resave: false,
     cookie: { maxAge: oneDay },
     saveUninitialized: true,
   })
-); //creating session
+); 
 
 // First route
 app.get('/', (req, res) => {

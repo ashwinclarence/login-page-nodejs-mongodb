@@ -152,3 +152,27 @@ scale: 1.1;
     text-align: center;
 }
 
+/* admin user update  */
+.user-update-container{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.user-update-container form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 40px 20px;
+    background-color: #ffffff32;
+    border-radius: 20px;
+}
+.user-update-container form input{
+    border: none;
+    outline: none;
+    background: transparent;
+    border-bottom: 1px solid #6c6c6c;
+    width: 300px;
+}

@@ -1,0 +1,20 @@
+<%-include('header') %>
+<%-include('adminNav') %>
+
+<div class="user-update-container">
+    <form action="/admin/userUpdate/<%=user.id%>" method="post">
+        <h2 style="text-transform: uppercase;">Edit user details</h2>
+        <div class="d-flex gap-5">
+            <input type="text" value="<%=username%>" disabled>
+            <input type="text" placeholder="Enter New Name" name="updateName" required>
+        </div>
+    <div class="d-flex gap-5">
+        <input type="email" disabled value="<%=userMail%>" disabled>
+        <input type="email" placeholder="Enter New Email" name="updateEmail" required>
+    </div>
+       
+        <button class="btn btn-success" type="submit">Update</button>
+    </form>
+</div>
+
+<%-include('footer') %>

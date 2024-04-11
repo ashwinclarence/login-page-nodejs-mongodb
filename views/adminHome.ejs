@@ -1,37 +1,50 @@
 <%-include('header')%>
-<%-include('adminNav')%>
-<div class="admin-home-container">
-    <div class="user-manage-header">
-        <h2>Users List</h2>
-    </div>
-    <div class="admin-search-box">
-        <input type="text" placeholder="Search" id="admin-input-box">
-        <i class="fa-solid fa-magnifying-glass"></i>
-    </div>
-    <div class="admin-user-view">
-        <table>
-            <thead>
-                <tr>
-                    <th>sl</th>
-                   <th>User Name</th>
-                   <th>Mail id</th>
-                   <th>Joined Date</th>
-                   <th>Action</th>
-                </tr>
-            </thead>
-           <tbody>
-            <tr>
-                <th>1</th>
-                <td>ASHWIN CLARENCE</td>
-                <td>meashwin@gmail.com</td>
-                <td>20/10/2012</td>
-                <td>
-                    <button class="btn btn-secondary">Update</button>
-                    <button class="btn btn-danger">Delete</button>
-                </td>
-            </tr>
-           </tbody>
-        </table>
-    </div>
-</div>
-<%-include('footer')%>
+    <%-include('adminNav')%>
+        <div class="admin-home-container">
+            <div class="user-manage-header">
+                <h2>Users List</h2>
+            </div>
+            <div class="admin-search-box">
+                <form action="/admin/home" method="get">
+                    <input type="text" name="adminSearch" placeholder="Search" id="admin-input-box">
+                    <button class="btn btn-info" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+
+                </form>
+            </div>
+            <div class="admin-user-view">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>sl</th>
+                            <th>User id</th>
+                            <th>User Name</th>
+                            <th>Mail id</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% user.forEach((user,index)=>{ %>
+                            <tr>
+                                <th>
+                                    <%= index+1 %>
+                                </th>
+                                <td>
+                                    <%= user.id %>
+                                </td>
+                                <td>
+                                    <%= user.name %>
+                                </td>
+                                <td>
+                                    <%= user.email %>
+                                </td>
+                                <td>
+                                    <button class="btn btn-secondary">Update</button>
+                                    <button class="btn btn-danger">Delete</button>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <%-include('footer')%>

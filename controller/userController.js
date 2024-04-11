@@ -68,7 +68,8 @@ const logout = (req, res) => {
         if (err) {
             console.log(`Error occurred while destroying the session ${err}`);
         } else {
-            res.redirect('/', { status: false })
+            // console.log('redirect to login page')
+            res.redirect('/')
         }
     })
 }

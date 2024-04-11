@@ -3,7 +3,7 @@ const collection = require('../model/connection')
 
 // if user exist in session then redirect to home page
 const signup = (req, res) => {
-    if (req.session.user) {
+    if (req.session.username) {
         res.redirect('/user/home')
     } else {
         res.render('userRegister', { title: 'User Registration', status: false })
@@ -41,6 +41,7 @@ const loginPost = async (req, res) => {
     try {
         const CheckUser = await collection.findOne({ email: req.body.userMail })
         if (CheckUser && CheckUser.password === req.body.userPassword) {
+            req.session.nameUserLogin = req.body.userName
             req.session.username = req.body.userMail
             res.redirect('/user/home')
         } else {
@@ -55,7 +56,7 @@ const loginPost = async (req, res) => {
 // user home route
 const home = (req, res) => {
     if (req.session.username) {
-        res.render('userHome', { title: "User home" })
+        res.render('userHome', { title: "User home",username:req.session.nameUserLogin })
     } else {
         res.redirect('/')
     }
